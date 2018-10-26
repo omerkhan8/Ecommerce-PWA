@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Olx Pakistan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Olx App">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+
+    <!-- For windows -->
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+
+
+    <!-- bootstrap -->
+
+    <link rel="stylesheet" href="bootstrap/one.css">
+
+    <script src="bootstrap/two.js"></script>
+    <script src="bootstrap/three.js"></script>
+    <script src="bootstrap/four.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script> -->
+
+    <!-- sweet alert -->
+
+    <script src="sweetalert/sa.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+
+    <!-- for icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<body onload="favouritePage();">
+
+
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyCWtXna_6Pq0PfT1dPFLkygwog7qMq_fF4",
+            authDomain: "paki-olx.firebaseapp.com",
+            databaseURL: "https://paki-olx.firebaseio.com",
+            projectId: "paki-olx",
+            storageBucket: "paki-olx.appspot.com",
+            messagingSenderId: "889849646518"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <!-- nav bar -->
+
+    <nav class="navbar navbar-expand-lg  navbar-light bg-primary">
+        <a class="navbar-brand" id="names" href="index.html">
+            <img src="images/OLX-Logo.png" alt="logo" width="40px" height="40px"> Pakistan's Largest Marketplace</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <span class="form-inline" style="margin-left:auto">
+                <button class="btn btn-primary center-block" id="createButton" data-toggle="modal" data-target="#exampleModal">Post an Ad
+                    <i class="fa fa-cart-plus"></i>
+                </button>
+                <span id="myButtons">
+                    <button class="btn btn-primary center-block" data-toggle="modal" data-target="#exampleModal1">Login
+                        <i class="fa fa-user-o"></i>
+                    </button>
+                    <button class="btn btn-primary center-block" data-toggle="modal" data-target="#exampleModal2">SignUp
+                        <i class="fa fa-user-plus"></i>
+                    </button>
+                </span>
+                <!-- <button id="logout" class="btn btn-primary center-block" style="display:none" onclick="signoutUser()">Logout
+                    <i class="fa fa-sign-out"></i>
+                </button> -->
+                <div class="btn-group" id="userPanel" style="display:none;">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle" style="font-size:22px"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+
+                        <a class="dropdown-item" href="index.html">
+                            <i class="fa fa-home" style="color:#92B123"></i>&nbspHome</a>
+                        <a class="dropdown-item" href="favourite.html">
+                            <i class="fa fa-heart" style="color:red;"></i>&nbspFavourite</a>
+                        <a class="dropdown-item" href="messages.html">
+                            <i class="fa fa-comments" style="color:#007BFF;"></i>&nbspMy Messages</a>
+                        <div class="dropdown-divider" style="border-color:lightgray;"></div>
+                        <a class="dropdown-item" href="#" onclick="signoutUser()">
+                            <i class="fa fa-sign-out"></i>&nbspLogout</a>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </nav>
+
+    <!-- nav-bar end -->
+
+
+    <!-- search bar -->
+
+    <div class="container-fluid" id="searchDiv">
+        <input class="form-control " type="search" placeholder="Search" aria-label="Search" id="searchBar" onkeyup="search(JSON.parse(localStorage.getItem('adArrayFav')))">
+    </div>
+    <!-- search bar ends -->
+
+
+    <!-- Modal post ad -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Submit your AD</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="loader" id="adLoaderMain" style="display:none"></div>
+                    <span id="adLoader">
+                        <select id="inputState" class="form-control">
+                            <option selected disabled="disabled">Category</option>
+                            <option>Mobile</option>
+                            <option>Laptop</option>
+                            <option>Vehicle</option>
+                            <option>Property</option>
+                            <option>Electronics Appliances</option>
+                            <option>Furniture</option>
+                        </select>
+                        <input type="text" class="form-control" id="cName" placeholder="Name *">
+                        <!-- <input type="text" class="form-control" id="cDescription" placeholder="Description *"> -->
+                        <input type="text" class="form-control" id="cModel" placeholder="Ad Title *">
+                        <input type="text" class="form-control" id="cPrice" placeholder="Price *">
+                        <textarea class="form-control" placeholder="Description *" id="cDescription" rows="3"></textarea>
+                        <input type="file" class="form-control" id="cFile">
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="postAd();">Save changes</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+
+    <!-- Modal for sign IN-->
+
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" style="height:50px" placeholder="Email address *" id="email">
+                    <input type="password" class="form-control" style="height:50px" placeholder="Password *" id="password">
+                    <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                        <input type="checkbox" class="custom-control-input" id="customControlInline">
+                        <label class="custom-control-label" for="customControlInline">Remember me </label>
+                        <br>
+                        <br>
+                        <button onclick="login()" class="btn btn-primary btn-lg btn-block" style="border-radius:50px;">Login</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model end -->
+
+
+    <!-- Modal  for sign UP-->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Create an Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" style="height:50px" placeholder="Username" id="userName">
+                    <input type="email" class="form-control" style="height:50px" placeholder="Email address *" id="userEmail">
+                    <input type="password" class="form-control" style="height:50px" placeholder="Password *" id="userPassword">
+                    <button onclick="signup()" class="btn btn-primary btn-lg btn-block" style="border-radius:50px;">Create Account</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- model end -->
+
+
+    <!-- heading -->
+    <div class="allAd">
+        <h3>Favourite Ads</h3>
+    </div>
+
+    <div class="container-fluid" id="addChartsFav">
+        <div id="foundNoAds"></div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

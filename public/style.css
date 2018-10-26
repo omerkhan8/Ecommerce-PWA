@@ -1,0 +1,329 @@
+
+/* nav bar text */
+#names{
+    color: white;   
+
+}
+
+/* searching div */
+#searchDiv{
+    margin-top: 5px;
+}
+
+/* searching input */
+#searchDiv input{
+    height: 45px;   
+}
+
+/* login/signup input */
+.modal-body input{
+    margin: 2px;
+    border-radius: 5%;
+    height: 50px;
+}
+
+
+/* div containing charts */
+#addCharts{
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5px;
+    /* border-style: solid; */
+    width: 75%;
+}
+
+/* card div */
+.card_style{
+    background-color: lightgray !important;
+    margin: 10px !important;
+}
+
+/* card div hover */
+.card_style :hover{
+    background-color: rgb(196, 196, 196);
+}
+
+/* heart for add to fav */
+.heart{
+    font-size: 24px !important;
+    /* float: right; */
+    color:rgb(70, 70, 70);
+    position: relative;
+    top: 4px;
+    left: 10px;
+}
+
+/* span for heart */
+.myHeart :hover{
+    color:rgb(224, 2, 2) !important;
+}
+
+/* card last text ad submit by */
+.adsubmitby{
+    font-size: 0.7em;
+    display: block;
+    position: relative;
+    /* left: 20px; */
+}
+
+/* add Ads heading */
+.allAd{
+    border-bottom-style: solid;
+    border-width: 1.4px;
+    border-color: darkgray;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+    box-shadow:  0 0.5px darkgray;
+}
+
+/* add cards on fav page */
+#addChartsFav{
+     /* width: 100%; */
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-top: 5px;
+     /* border-style: solid; */
+     width: 75%;
+}
+
+/* category wise search select */
+#categorySearch{
+    width: 200px;
+    margin: 5px auto;
+    overflow: hidden
+
+}
+#categorySearch select{
+    width: inherit;
+}
+
+/* responsive search input */
+@media (min-width: 500px){
+    #searchDiv input{
+        width: 450px;
+        margin: 0 auto;
+    }
+
+}
+
+/* font size change of nav bar text */
+@media (max-width: 350px){
+
+    #names{
+        font-size: 1em;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* image height fixed for cards */
+@media(min-width:630px){
+.card_img {
+        width: 100%;   
+        /* height: 230px; */
+        height: 180px;
+    }
+}
+
+
+/* loader */
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* loader ends */
+
+/* tab */
+
+/* Style the tab */
+
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 30%;
+    /* height: 566px; */
+    overflow: scroll;
+    margin-top: 10px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabChats {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    /* border: none; */
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.8s;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Change background color of buttons on hover */
+.tabChats:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+ /* .active {
+    background-color: #ccc;
+} */
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    /* border-left: none; */
+    /* height: 566px; */
+    overflow: scroll;
+    margin-top: 10px;
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+/* chat heading in tab */
+
+.tabHeading{
+    /* text-align: center; */
+    color: #92B124;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: lightgray;
+    padding: 5px;
+}
+
+/* image inside chat div */
+.tabChats img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* back icon in messages */
+#backIcon{
+    position: fixed;
+    top: 80px;
+    left: 2px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    background-color:#5BB06C ;
+    border-radius: 50%;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #5BB06C;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* @media (max-width:421px){
+    #backIcon{
+        top:16%;
+    }
+} */
+
+/* input text for chat */
+#chatInputText{
+    /* position: absolute;
+    bottom: 0; */
+    width: 70%;
+    margin-left: auto;
+}
+
+/* media for chat */
+
+@media (max-width: 950px){
+
+    .tab{
+        width: 42%;
+
+    }
+    .tabcontent{
+        width: 58%;
+    }
+    .tabHeading h3{
+        font-size: 1.4em;
+    }
+    .tabChats img{
+        width: 50px;
+        height: 50px;
+    }
+    #chatInputText{
+        width: 58%;
+    }
+
+}
+
+/* @media (max-width: 650px){
+    .tabcontent{
+        display: none;
+        width: 100%
+    }
+    #backIcon{
+        display: inline;
+    }
+    .tab{
+        width: 100%;
+    }
+} */
+
+/* div for chat list */
+.chatList{
+    position: relative;
+    left: 20px;
+    font-weight: bold;
+}
+
+
+/* divs for chat msgs (actual msg) */
+.textMsgs{
+    /* width: 310px; */
+    display: inline-block;
+    /* border: 1px solid white; */
+    background-color: #007BFF;
+    border-radius: 30px;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    text-align: left;
+}
+
+
+/* for sender msgs */
+
+.rightMsgs{
+    /* margin-left: auto; */
+    /* float: right; */
+    background-color: #5BB06C !important;
+}
