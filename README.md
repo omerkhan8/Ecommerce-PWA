@@ -1,5 +1,5 @@
 # Live Preview
-[Paki-Olx]{https://paki-olx.firebaseapp.com/}
+[Paki-Olx](https://paki-olx.firebaseapp.com/)
 
 ## Techonologies Used
 1. Firebase (Authentication, RealTime Database, Cloud functions, Storage, Hosting ).
